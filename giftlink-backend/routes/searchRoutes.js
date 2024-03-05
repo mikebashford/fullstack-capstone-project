@@ -1,7 +1,7 @@
+/*jshint esversion: 8 */
 const express = require('express');
 const router = express.Router();
 const connectToDatabase = require('../models/db');
-/*jshint esversion: 8 */
 // Search for gifts
 router.get('/', async (req, res, next) => {
     try {
