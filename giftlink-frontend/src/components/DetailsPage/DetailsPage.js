@@ -3,9 +3,9 @@ import { useParams, useNavigate } from 'react-router-dom';
 import {urlConfig} from '../../config';
 import './DetailsPage.css';
 
-const navigate = useNavigate();
 
 function DetailsPage() {
+    const navigate = useNavigate();
     const { productId } = useParams();
     const [gift, setGift] = useState(null);
     const [loading, setLoading] = useState(true);
@@ -35,7 +35,7 @@ function DetailsPage() {
         fetchGift();
 		window.scroll(0, 0)
 
-    }, [productId]);
+    }, [productId, navigate]);
 
 
     const handleBackClick = () => {
