@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import {urlConfig} from '../../config';
 import './DetailsPage.css';
 
 function DetailsPage() {
@@ -12,14 +13,11 @@ function DetailsPage() {
 	useEffect(() => {
         const authenticationToken = sessionStorage.getItem('auth-token');
         if (!authenticationToken) {
-			// Task 1: Check for authentication and redirect
             navigate('app/login')
         }
 
-        // get the gift to be rendered on the details page
         const fetchGift = async () => {
             try {
-				// Task 2: Fetch gift details
                 const response = await fetch(`${urlConfig.backendUrl}/api/gifts/${productId}`);
                 if (!response.ok) {
                     throw new Error('Network response was not ok');
